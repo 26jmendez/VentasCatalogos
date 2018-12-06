@@ -10,6 +10,7 @@ namespace DomainEntities
 
         public int IdComprador { get; set; }
         public string Nombre { get; set; }
+        public int IdContacto { get; set; }
         public Contacto Contacto { get; set; }
 
         #endregion

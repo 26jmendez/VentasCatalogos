@@ -8,6 +8,7 @@ namespace DomainEntities
 
         public int IdContacto { get; set; }
         public string Nombre { get; set; }
+        public Comprador Comprador { get; set; }
         public ICollection<Comprador> Compradores { get; set; }
 
         #endregion
