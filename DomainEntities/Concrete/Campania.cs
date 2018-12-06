@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DomainEntities.Concrete
+namespace DomainEntities
 {
     public class Campania : ICampania
     {
@@ -13,5 +13,6 @@ namespace DomainEntities.Concrete
         public short Anio { get; set; }
         public Producto Producto { get; set; }
         #endregion
+
     }
 }
