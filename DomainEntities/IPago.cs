@@ -1,4 +1,4 @@
-﻿namespace DomainEntities.Concrete
+﻿namespace DomainEntities
 {
     public interface IPago
     {

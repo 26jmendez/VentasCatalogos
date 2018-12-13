@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DomainEntities
+namespace DomainEntities.Concrete
 {
     public class Venta : IVenta
     {

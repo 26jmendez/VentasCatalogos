@@ -7,24 +7,24 @@ namespace DataAccess.Concrete
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly Context _context;
+        private readonly Context context;
 
-        public UnitOfWork(Context context)
+        public UnitOfWork(Context dbContext)
         {
-            _context = context;
+            context = dbContext;
         }
 
         public Context Context
         {
             get
             {
-                return _context;
+                return context;
             }
         }
 
         public void Completar()
         {
-            _context.SaveChanges();
+            context.SaveChanges();
         }
         
         public void Dispose()

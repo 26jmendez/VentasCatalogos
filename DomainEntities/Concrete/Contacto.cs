@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DomainEntities
+namespace DomainEntities.Concrete
 {
     public class Contacto : IContacto
     {

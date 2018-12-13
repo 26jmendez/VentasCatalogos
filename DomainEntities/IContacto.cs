@@ -1,4 +1,6 @@
-﻿namespace DomainEntities
+﻿using DomainEntities.Concrete;
+
+namespace DomainEntities
 {
     public interface IContacto
     {

@@ -8,53 +8,51 @@ namespace DataAccess
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private readonly IUnitOfWork _unitOfWork;
-        internal DbSet<TEntity> dbset;
+        protected readonly DbContext Context;
 
-        public Repository(IUnitOfWork unitOfWork)
+        public Repository(DbContext context)
         {
-            _unitOfWork = unitOfWork;
-            dbset = _unitOfWork.Context.Set<TEntity>();
+            Context = context;
         }
 
         public TEntity Primero(Expression<Func<TEntity, bool>> expression)
         {
-            return dbset.FirstOrDefault(expression);
+            return Context.Set<TEntity>().FirstOrDefault(expression);
         }
 
         public IEnumerable<TEntity> ObtenerTodos()
         {
-            return dbset;
+            return Context.Set<TEntity>();
         }
 
         public IEnumerable<TEntity> ObtenerTodos(Expression<Func<TEntity, bool>> expression)
         {
-            return dbset.Where(expression);
+            return Context.Set<TEntity>().Where(expression);
         }
 
         public void Agregar(TEntity entity)
         {
-            dbset.Add(entity);
+            Context.Set<TEntity>().Add(entity);
         }
 
         public void AgregarVarios(ICollection<TEntity> entities)
         {
-            dbset.AddRange(entities);
+            Context.Set<TEntity>().AddRange(entities);
         }
 
         public void Borrar(TEntity entity)
         {
-            dbset.Remove(entity);
+            Context.Set<TEntity>().Remove(entity);
         }
 
         public void BorrarVarios(ICollection<TEntity> entities)
         {
-            dbset.RemoveRange(entities);
+            Context.Set<TEntity>().RemoveRange(entities);
         }
 
         public bool Existe(Expression<Func<TEntity, bool>> expression)
         {
-            return dbset.Any(expression);
+            return Context.Set<TEntity>().Any(expression);
         }
     }
 }
